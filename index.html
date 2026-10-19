@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SWAP: Test-Time Steerable Humanoid Whole-Body Collision Avoidance</title>
+  <meta name="description" content="Project page for SWAP, a steerable whole-body collision avoidance policy for humanoid robots. Paper, code, and videos coming soon.">
+  <style>
+    :root {
+      --steel: #F1F4F7;   /* title box in the paper template */
+      --iron: #6D6E71;    /* box frame and dashed rules */
+      --ink: #1F2428;
+      --primal: #660000;  /* labels, as in the paper's colored bold */
+      --teal: #006666;    /* links, as in the paper */
+      --paper: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 3.5rem 1.25rem 4rem;
+    }
+
+    main {
+      max-width: 46rem;
+      margin: 0 auto;
+    }
+
+    .titlebox {
+      background: var(--steel);
+      border-radius: 8px;
+      padding: 2.25rem 2.5rem 1.75rem;
+    }
+
+    h1 {
+      margin: 0 0 1.4rem;
+      font-size: clamp(1.7rem, 4.2vw, 2.45rem);
+      line-height: 1.18;
+      font-weight: 700;
+      letter-spacing: -0.005em;
+    }
+
+    .authors {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.6;
+    }
+
+    .authors span { white-space: nowrap; }
+
+    sup {
+      font-size: 0.68em;
+      line-height: 0;
+    }
+
+    .rule {
+      width: 38%;
+      max-width: 15rem;
+      height: 0;
+      margin: 0.7rem 0 0.55rem;
+      border: 0;
+      border-top: 1.2px solid var(--ink);
+    }
+
+    .affiliations {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .affiliations span + span { margin-left: 1.25em; }
+
+    .note {
+      margin: 0.25rem 0 0;
+      font-size: 0.86rem;
+    }
+
+    .dashed {
+      height: 0;
+      margin: 1.6rem -2.5rem;
+      border: 0;
+      border-top: 1px dashed var(--iron);
+    }
+
+    /* The empty teaser frame from the paper template, kept until the videos are ready */
+    .teaser {
+      aspect-ratio: 5 / 2;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      border: 1.5px dashed var(--iron);
+      border-radius: 4px;
+      background: var(--paper);
+      text-align: center;
+    }
+
+    .teaser p {
+      max-width: 26rem;
+      margin: 0;
+      color: var(--iron);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .status {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .status li + li { margin-top: 0.15rem; }
+
+    .status b { color: var(--primal); }
+
+    .summary {
+      margin: 2.25rem 0 0;
+      padding: 0 0.25rem;
+      max-width: 40rem;
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 600px) {
+      html { font-size: 16.5px; }
+      body { padding: 1.25rem 0.75rem 3rem; }
+      .titlebox { padding: 1.6rem 1.25rem 1.4rem; }
+      .dashed { margin: 1.3rem -1.25rem; }
+      .teaser { aspect-ratio: 4 / 3; }
+      .affiliations span { display: block; }
+      .affiliations span + span { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="titlebox" aria-labelledby="title">
+      <h1 id="title">SWAP: Test-Time Steerable Humanoid Whole-Body Collision Avoidance</h1>
+
+      <p class="authors">
+        <span>Zeji Yi<sup>1,2*</sup>,</span>
+        <span>Guanqi He<sup>2</sup>,</span>
+        <span>Xiaofeng Guo<sup>2</sup>,</span>
+        <span>Guannan Qu<sup>1</sup>,</span>
+        <span>Pieter Abbeel<sup>2</sup>,</span>
+        <span>Yan Duan<sup>2</sup>,</span>
+        <span>Karen Liu<sup>2</sup>,</span>
+        <span>Guanya Shi<sup>1,2</sup></span>
+      </p>
+      <hr class="rule">
+      <p class="affiliations">
+        <span><sup>1</sup>Carnegie Mellon University</span>
+        <span><sup>2</sup>Amazon FAR</span>
+      </p>
+      <p class="note"><sup>*</sup>Work done at Amazon FAR</p>
+
+      <hr class="dashed">
+
+      <div class="teaser" role="img" aria-label="Video placeholder">
+        <p>Videos of the Unitree G1 ducking, sidestepping, and twisting past obstacles will appear here.</p>
+      </div>
+
+      <hr class="dashed">
+
+      <ul class="status">
+        <li><b>Paper:</b> coming soon</li>
+        <li><b>Code:</b> coming soon</li>
+        <li><b>Videos:</b> coming soon</li>
+      </ul>
+    </section>
+
+    <p class="summary">
+      SWAP is a hierarchical policy that lets a humanoid robot avoid obstacles with its whole body.
+      A diffusion planner proposes many collision-aware motions, a reinforcement learning controller keeps the robot balanced,
+      and simple scoring functions choose among the proposals at test time, so the robot can change its goal without retraining.
+    </p>
+  </main>
+</body>
+</html>
